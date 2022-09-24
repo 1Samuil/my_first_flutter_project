@@ -13,9 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Startup Name Generator',
-      home: RandomWords(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.deepPurpleAccent,
+          foregroundColor: Colors.white,
+          shadowColor: Colors.grey,
+        ),
+      ),
+      home: const RandomWords(),
     );
   }
 }
@@ -28,6 +35,7 @@ class _RandomWordsState extends State<RandomWords> {
 
   @override
   Widget build(BuildContext context) {
+    var countL = 10;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Startup Name Generator'),
@@ -41,6 +49,7 @@ class _RandomWordsState extends State<RandomWords> {
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(16.0),
+        itemCount: countL,
         itemBuilder: (context, i) {
           if (i.isOdd) return const Divider(); // adauga spatiu intre elemente
 
