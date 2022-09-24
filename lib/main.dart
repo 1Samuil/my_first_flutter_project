@@ -19,19 +19,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Startup Name Generator'),
         ),
-        body: Center(
+        body: const Center(
           child: RandomWords(),
         ),
       ),
     );
   }
-}
-
-class RandomWords extends StatefulWidget {
-  const RandomWords({Key? key}) : super(key: key);
-
-  @override
-  State<RandomWords> createState() => _RandomWordsState();
 }
 
 class _RandomWordsState extends State<RandomWords> {
@@ -58,4 +51,11 @@ class _RandomWordsState extends State<RandomWords> {
       }
     );
   }
+}
+
+class RandomWords extends StatefulWidget {
+  const RandomWords({Key? key}) : super(key: key);
+
+  @override
+  State<RandomWords> createState() => _RandomWordsState();
 }
