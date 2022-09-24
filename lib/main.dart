@@ -48,19 +48,18 @@ class _RandomWordsState extends State<RandomWords> {
         ],
       ),
       body: ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemCount: countL,
-        itemBuilder: (context, i) {
-          if (i.isOdd) return const Divider(); // adauga spatiu intre elemente
+          padding: const EdgeInsets.all(16.0),
+          itemBuilder: (context, i) {
+            if (i.isOdd) return const Divider(); // adauga spatiu intre elemente
 
-          final index = i ~/ 2;
-          if (index >= _suggestions.length) {
-            _suggestions.addAll(generateWordPairs().take(10));
-          }
+            final index = i ~/ 2;
+            if (index >= _suggestions.length) {
+              _suggestions.addAll(generateWordPairs().take(10));
+            }
 
-          final alreadySaved = _saved.contains(_suggestions[index]);
+            final alreadySaved = _saved.contains(_suggestions[index]);
 
-          return ListTile(
+            return ListTile(
               title: Text(
                 _suggestions[index].asPascalCase,
                 style: _biggerFont,
@@ -79,8 +78,8 @@ class _RandomWordsState extends State<RandomWords> {
                   }
                 });
               },
-          );
-        }
+            );
+          }
       ),
     );
   }
